@@ -1,0 +1,159 @@
+/* styles.css */
+
+/* Global Styles */
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Custom font */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: url('img.png');
+  background-size: cover;
+  background-position: center;
+  overflow-y: auto;
+}
+
+/* Header and Paragraph styling */
+h1, h2, h3, p {
+  color: #fff; /* White text color for better visibility */
+}
+
+h1, h2, h3 {
+  font-weight: 700; /* Bold for headers */
+}
+
+p {
+  font-weight: 400; /* Normal weight for paragraphs */
+}
+
+/* Container for grid layout */
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 20px; /* Gap between columns */
+  padding: 20px;
+  width: 100%;
+  height: 100%; /* Fill the entire viewport */
+  box-sizing: border-box;
+}
+
+.main-header {
+  padding: 20px;
+  width: 100%;
+  height: 100%; /* Fill the entire viewport */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Grid item styling */
+.grid-item {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Ensure all grid items have equal height */
+.grid-item {
+  height: 100%;
+}
+
+input {
+  border: none;                 /* Remove the default border */
+  border-radius: 15px;          /* Round the corners */
+  padding: 10px 15px;           /* Add padding for better look */
+  font-size: 16px;              /* Text size */
+  background-color: #f0f0f0;    /* Light gray background */
+  width: 100%;
+}
+
+input::placeholder {
+  color: #999999;               /* Gray color for the placeholder text */
+  font-size: 14px;              /* Smaller font size for the placeholder */
+  font-family: 'Arial', sans-serif; /* Custom font for the placeholder */
+}
+
+button {
+  border: none;                 /* Remove the default border */
+  border-radius: 15px;          /* Round the corners */
+  padding: 10px 15px;           /* Add padding for better look */
+  background-color: #f0f0f0;    /* Light gray background */
+}
+
+a {
+  text-decoration: none;           /* Remove the default underline */
+  color: #333;                     /* Set a neutral color for the link */
+  font-weight: 500;                 /* Make the text a bit bolder */
+  transition: all 0.3s ease;       /* Smooth transition for hover effect */
+}
+
+/* Underline and change color on hover */
+a:hover {
+  color: #007BFF;                  /* Set a color on hover (you can use any color) */
+  text-decoration: underline;      /* Underline the link */
+}
+
+#searxng-logo {
+  max-width: 100%;       /* Allow the image to scale to fit the width of its container */
+  max-height: 50px;     /* Constrain the maximum height of the image */
+  height: auto;          /* Maintain aspect ratio */
+}
+
+#searxng-container {
+  margin: 10px;
+}
+
+#banner {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+#weather-container p {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.weather-icons {
+  max-width: 100%;       /* Allow the image to scale to fit the width of its container */
+  max-height: 20px;     /* Constrain the maximum height of the image */
+  height: auto;          /* Maintain aspect ratio */
+}
+
+.weather-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#tasks-container p {
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#notes-container p {
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
