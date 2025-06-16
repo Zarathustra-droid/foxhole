@@ -6,7 +6,7 @@ const Searchbar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.open(`https://searxng2.blueberrypi.com/search?q=${encodeURIComponent(query)}`, '_blank');
+    window.open(`https://searxng2.blueberrypi.com/searxng?q=${encodeURIComponent(query)}`, '_blank');
   };
 
   return (
