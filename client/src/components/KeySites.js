@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
-
+import { getDataFromCacheOrAPI } from '../utils/cache'
+;
 const KeySites = () => {
   const [sites, setSites] = useState(null);
-
+  const [error, setError] = useState(null);
+  
   useEffect(() => {
-    fetch('/api/sites')
-      .then(res => res.json())
-      .then(data => setSites(data))
-      .catch(console.error);
+    const cacheKey="sites";
+    getDataFromCacheOrAPI('/api/sites', cacheKey)
+        .then(fetchedData => {
+          if (fetchedData) {
+            setSites(fetchedData);
+          } else {
+            setError('Failed to load data.');
+          }
+    })
   }, []);
 
   if (!sites) return <div>Loading sites...</div>;

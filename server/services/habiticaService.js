@@ -1,5 +1,5 @@
 // server/services/nextcloudService.js
-const axios = require('axios');
+const axios = require('../utils/axios');
 const parser = require('xml2js').parseStringPromise;
 
 const getTasks = async () => {

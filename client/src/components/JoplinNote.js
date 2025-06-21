@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { getDataFromCacheOrAPI } from '../utils/cache';
 
 const Note = () => {
   const [note, setNote] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/api/joplin')
-      .then(res => res.json())
-      .then(data => setNote(data))
-      .catch(console.error);
+    const cacheKey = "joplin";
+    getDataFromCacheOrAPI('/api/joplin', cacheKey)
+        .then(fetchedData => {
+          if (fetchedData) {
+            setNote(fetchedData);
+          } else {
+            setError('Failed to load data.');
+          }
+    })
   }, []);
 
   if (!note) return <div>Loading note...</div>;

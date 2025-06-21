@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getDataFromCacheOrAPI } from '../utils/cache';
 
 import TempIcon from '../icons/tempicon.svg';
 import SnowIcon from '../icons/snowicon.svg';
@@ -10,12 +11,18 @@ import WindIcon from '../icons/windicon.svg';
 
 const Weather = () => {
   const [weather, setWeather] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/api/weather')
-      .then(res => res.json())
-      .then(data => setWeather(data))
-      .catch(console.error);
+    const cacheKey = "weather";
+    getDataFromCacheOrAPI('/api/weather', cacheKey)
+        .then(fetchedData => {
+          if (fetchedData) {
+            setWeather(fetchedData);
+          } else {
+            setError('Failed to load data.');
+          }
+    })
   }, []);
 
   if (!weather) return <div>Loading weather...</div>;

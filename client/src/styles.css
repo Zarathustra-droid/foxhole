@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-image: url('img.png');
+  background-image: url('../public/images/img.png');
   background-size: cover;
   background-position: center;
   overflow-y: auto;

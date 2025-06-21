@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { getDataFromCacheOrAPI } from '../utils/cache';
 
 const Calendar = () => {
   const [calendar, setCalendar] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/api/calendar')
-      .then(res => res.json())
-      .then(data => setCalendar(data))
-      .catch(console.error);
+    const cacheKey = "calendar";
+    getDataFromCacheOrAPI('/api/calendar', cacheKey)
+        .then(fetchedData => {
+          if (fetchedData) {
+            setCalendar(fetchedData);
+          } else {
+            setError('Failed to load data.');
+          }
+    })
   }, []);
 
   if (!calendar) return <div>Loading calendar...</div>;
